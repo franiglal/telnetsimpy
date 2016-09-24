@@ -5,12 +5,30 @@
 #	version 0.2
 #
 
+#---------------clases-----------------------
 
+#clase switch
+class Switch
+	
+	def initialize(sede, red, nombre, ip)
+		@sede = sede
+		@red = red
+		@nombre = nombre
+		@@ip = ip
+	
+	end
+	def text
+		puts "ip = #{@@ip}"
+	end
+	def telnet
+		system ("telnet #{@@ip}")
+	end
+end
 	
 lugar = 0 #seleccion de lugar
 tipo  = 0 #seleccion de tipo
-sw = 0    #seleccion de switch
-ip = ("switch.txt", "r") #seleccion de archivo donde estan las ips
+#seleccion de switch
+ip = File.open("switch.txt", "r") #seleccion de archivo donde estan las ips
 
 #presentación
 puts "          **********************************\n"
@@ -19,50 +37,67 @@ puts "          *         telrenault             *\n"
 puts "          *                                *\n"
 puts "          *     propiedad de Entelgy       *\n"
 puts "          *                                *\n"
-puts "          *    creado por Alberto F.I.	 *\n"
+puts "          *    creado por Alberto F.I.	   *\n"
 puts "          *                                *\n"
 puts "          *        Version 0.1             *\n"
 puts "          *                                *\n"
 puts "          **********************************\n\n"
 
-bugtracker()
+#bugtracker()
 
 #system("pause");
 #system("cls");
 	
 #menu de selección de sede
 
-puts " Escoje una opción...\n\n\n\n"
+puts "  Escoje una opcion...\n\n\n\n"
 puts "  (1) BAR          (2) MAD\n"
 puts "  (3) PAL          (4) SEV\n"
 puts "  (5) TAM          (6) VAL\n"
 puts "  (7) VLL"
-pront()
+puts 
+#pront()
+
+
+
+lugar = gets.to_i #se guarda la variable para seleccionar la sede 
 	
-lugar = gets.chomp #se guarda la variable para seleccionar la sede 
-	
+
 #system ("cls")
 	
 #se crea el menu para BAR
 	
 if lugar == 1
+  cargar = ["es-mbar-2ac1-drll", "es-mbar-21", "es-mbar-22"]
   puts "\n\n\n  (1) es-mbar-2ac1-drll"
   puts "\n  (2) es-mbar-21"
   puts "\n  (3) es-mbar-22"
-  pront()
-  sw = gets.chomp
-	
+  puts
+  sw = gets.to_i
+  
 
 	
-#menu de switch al que quererse conectar 
-  if ws <= 3
-    system ("telnet ")
+  #menu de switch al que quererse conectar 
+  if sw <= 3
+    
+	
+		ips = "192.168.1.1"
+
+  	mbar = Switch.new('mbar', 'otros', cargar[lugar], ips)
+  	mbar.telnet
+   
   else
-    puts("ERROR ....  switch no encontrado\n\n")
+    puts "ERROR ....  switch no encontrado\n\n"
     system("pause")
   end
-		
 
+else
+	puts "error"
+end
+
+
+	
+=begin
 	
 #menu para MAD y TAM
 elsif lugar == 2 || lugar == 5
@@ -112,7 +147,7 @@ elsif lugar == 2 || lugar == 5
       system "pause"
 	end			
   
-  =begin
+  
   		
   #menu para tam terciario
   else if ((lugar == 4) && (tipo == 1)){
@@ -224,7 +259,7 @@ elsif lugar == 2 || lugar == 5
 		
 	else if ((lugar == 3) || (lugar == 4) || (lugar == 7)){
 	
-		// menu de selección de tipo de red	
+		 menu de selección de tipo de red	
 		printf("\n\n Escoja tipo de red\n");
 		printf("\n\n\n (1) Industrial");
 		printf("\n\n (2) Terciario");
@@ -1624,7 +1659,7 @@ es-svll-dismot-5k-ter
 es-svll-dismot-5k1-ind 
 es-svll-01 
 es-svll-02 
-*/
+*
 		   
 		 
 		 
@@ -1679,3 +1714,6 @@ void bugtracker(){
 	
 }
 =end
+
+
+
