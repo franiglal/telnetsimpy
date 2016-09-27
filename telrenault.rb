@@ -10,10 +10,8 @@
 #clase switch
 class Switch
 	
-	def initialize(sede, red, nombre, ip)
-		@sede = sede
-		@red = red
-		@nombre = nombre
+	def initialize(nombre, ip)
+		@@nombre = nombre
 		@@ip = ip
 	
 	end
@@ -21,14 +19,48 @@ class Switch
 		puts "ip = #{@@ip}"
 	end
 	def telnet
+		puts "conectando a #{@@nombre}"
 		system ("telnet #{@@ip}")
 	end
 end
-	
+
+#funcion para conectar al router
+def conectar(conmutador, conexion, cargar) 		
+	if conmutador <= conexion
+		  ip = File.open("switch.txt", "r") #seleccion de archivo donde estan las ips
+  	  ips = ip.readlines 
+	  	sede = Switch.new(cargar[conmutador], ips[conmutador])
+  		sede.telnet
+  else
+   		puts "ERROR ....  switch no encontrado\n\n"
+    	system("pause")
+  end
+end
+
+#funcion solo terciario
+def terciario
+	puts "\n\n Escoja tipo de red\n"
+  #puts "\n\n\n (1) Industrial"
+  puts "\n\n\n (1) Terciario"
+  puts "\n\n (2) Otros"
+end
+
+#funcion solo industrial
+def industrial
+	puts "\n\n Escoja tipo de red\n"
+  puts "\n\n\n (1) Industrial"
+  puts "\n\n\n (2) Terciario"
+  puts "\n\n (3) Otros"
+end
+
+def error
+	puts "error de seleccion de switch"
+	system ("pausse")
+end
+
 lugar = 0 #seleccion de lugar
 tipo  = 0 #seleccion de tipo
-#seleccion de switch
-ip = File.open("switch.txt", "r") #seleccion de archivo donde estan las ips
+sw = 0 #seleccion de switch
 
 #presentación
 puts "          **********************************\n"
@@ -43,10 +75,6 @@ puts "          *        Version 0.1             *\n"
 puts "          *                                *\n"
 puts "          **********************************\n\n"
 
-#bugtracker()
-
-#system("pause");
-#system("cls");
 	
 #menu de selección de sede
 
@@ -56,17 +84,11 @@ puts "  (3) PAL          (4) SEV\n"
 puts "  (5) TAM          (6) VAL\n"
 puts "  (7) VLL"
 puts 
-#pront()
-
-
 
 lugar = gets.to_i #se guarda la variable para seleccionar la sede 
-	
 
-#system ("cls")
 	
-#se crea el menu para BAR
-	
+#----------- menu para BAR-------------------------------------------------
 if lugar == 1
   cargar = ["es-mbar-2ac1-drll", "es-mbar-21", "es-mbar-22"]
   puts "\n\n\n  (1) es-mbar-2ac1-drll"
@@ -74,138 +96,71 @@ if lugar == 1
   puts "\n  (3) es-mbar-22"
   puts
   sw = gets.to_i
-  
 
-	
   #menu de switch al que quererse conectar 
-  if sw <= 3
-    
-	
-		ips = "192.168.1.1"
+  conectar(sw, 3, cargar[sw])
 
-  	mbar = Switch.new('mbar', 'otros', cargar[lugar], ips)
-  	mbar.telnet
-   
-  else
-    puts "ERROR ....  switch no encontrado\n\n"
-    system("pause")
-  end
-
-else
-	puts "error"
-end
-
-
-	
-=begin
-	
-#menu para MAD y TAM
-elsif lugar == 2 || lugar == 5
-  puts "\n\n Escoja tipo de red\n"
-  #puts "\n\n\n (1) Industrial"
-  puts "\n\n\n (1) Terciario"
-  puts "\n\n (2) Otros"
-  puts "\n\n >>> "
-  tipo = gets.chomp
-			
-  #se crea el menu de cada sede para escojer el switch
+#-----------menu para MAD --------------------------------------------
+elsif lugar == 2 
+  terciario()
+  tipo = gets.to_i
 		
   #menu para MAD terciario
-  if lugar == 2 && tipo == 1 
+  if tipo == 1 
+    cargar = ["es-smad-2a1-ter", "es-smad-2j1-ter", "es-smad-2b1-ter", "es-smad-2k1-ter", 
+    	"es-smad-2c1-ter", "es-smad-2l1-ter", "es-smad-2d1-ter", "es-smad-2m1-ter", "es-smad-2e1-ter", 
+    	"es-smad-2q1-ter", "es-smad-2f1-ter", "es-smad-2r1-ter", "es-smad-2g1-ter", "es-smad-2s1-ter", 
+    	"es-smad-2h1-ter", "es-mmad-2sacore1-ter", "es-smad-2i1-ter", "es-mmad-2acore2-ter"]
     puts "\n\n\n (1) es-smad-2a1-ter           (9) es-smad-2j1-ter"
     puts "\n (2) es-smad-2b1-ter           (10) es-smad-2k1-ter"
-	puts "\n (3) es-smad-2c1-ter           (11) es-smad-2l1-ter"
-	puts "\n (4) es-smad-2d1-ter           (12) es-smad-2m1-ter"
-	puts "\n (5) es-smad-2e1-ter           (13) es-smad-2q1-ter"
-	puts "\n (6) es-smad-2f1-ter           (14) es-smad-2r1-ter"
-	puts "\n (7) es-smad-2g1-ter           (15) es-smad-2s1-ter"
-	puts "\n (8) es-smad-2h1-ter           (16) es-mmad-2sacore1-ter"
-	puts "\n (9) es-smad-2i1-ter           (18) es-mmad-2acore2-ter"
-			
-    pront()
-	sw = gets.chomp
-			
-    if sw <= 18
-	  system("telnet #{file}")
-	else
-	  puts "ERROR ....  switch no encontrado\n\n"
-	  system("pause")
-	 end
+		puts "\n (3) es-smad-2c1-ter           (11) es-smad-2l1-ter"
+		puts "\n (4) es-smad-2d1-ter           (12) es-smad-2m1-ter"
+		puts "\n (5) es-smad-2e1-ter           (13) es-smad-2q1-ter"
+		puts "\n (6) es-smad-2f1-ter           (14) es-smad-2r1-ter"
+		puts "\n (7) es-smad-2g1-ter           (15) es-smad-2s1-ter"
+		puts "\n (8) es-smad-2h1-ter           (16) es-mmad-2sacore1-ter"
+		puts "\n (9) es-smad-2i1-ter           (18) es-mmad-2acore2-ter"
 
-  #menu para MAD otros
-  elsif lugar == 2 && tipo == 2
-	puts "\n\n\n (1) es-mad-21"
-	puts "\n (2) es-mad-22"
-	pront()
-	
-	sw = gets.chomp
+		sw = gets.to_i
+		temporal = sw + 5
+	  conectar(temporal, 18, cargar[sw] )
 
-	if sw <= 2
-      system("telnet ")
-    else
-	  puts "ERROR ....  switch no encontrado\n\n"
-      system "pause"
-	end			
-  
-  
-  		
-  #menu para tam terciario
-  else if ((lugar == 4) && (tipo == 1)){
-			
-			printf("\n\n\n (1) es-tam-2da1-ter     	(6) es-tam-2de-ter");
-			printf("\n (2) es-tam2-da2-ter 		(7) es-tam-2df-ter");
-			printf("\n (3) es-tam-2db-ter 		(8) es-mtad-2dacore1-ter");
-			printf("\n (4) es-tam-2dc-ter 		(9) es-mtam-2dgcore2-ter");
-			printf("\n (5) es-tam-2dd-ter");
-			printf("\n\n >>> ");
+    #menu para MAD otros
+  elsif tipo == 2
+  	cargar = ["es-mad-21", "es-mad-22"]
+		puts "\n\n\n (1) es-mad-21"
+		puts "\n (2) es-mad-22"
+	  
+	  sw = gets.to_i
+	  temporal = sw + 25
+	  conectar(sw, 2, cargar[sw])
 		
-			scanf("%d", &sw);
-			
-			switch (sw){
-			
-				case 1 :
-					system("telnet 10.216.178.242");
-					break;
-			
-				case 2 :
-					system("telnet 10.216.178.243");
-					break;
-				
-				case 3 :
-					system("telnet 10.216.178.250");	
-					break;
-				
-				case 4 :
-					system("telnet 10.216.178.246");
-					break;
-			
-				case 5 :
-					system("telnet 10.216.178.249");
-					break;
-				
-				case 6 :
-					system("telnet 10.216.178.248");
-					break;
-				
-				case 7 :
-					system("telnet 10.216.178.247");
-					break;
-			
-				case 8 :
-					system("telnet 10.216.127.26");
-					break;
-				
-				case 9 :
-					system("telnet 10.216.127.27");
-					break;
-			
-				default:
-					printf("ERROR ....  switch no encontrado\n\n");
-					system("pause");
-					break;
-				
-			}
-		}
+	else 
+		error()
+	end
+
+  
+ 		
+#---------------menu para tam terciario--------------------------------------
+elsif lugar == 4
+  terciario()
+	tipo = gets.to_i	
+	
+	if tipo == 1
+		cargar = ["es-tam-2da1-ter","es-tam-2de-ter", "es-tam2-da2-ter", 
+			"es-tam-2df-ter", "es-mtad-2dacore1-ter", "es-tam-2dc-ter", 
+			"es-mtam-2dgcore2-ter", "es-tam-2dd-ter"] 
+		puts "\n\n\n (1) es-tam-2da1-ter     	(6) es-tam-2de-ter"
+		puts "\n (2) es-tam2-da2-ter 		(7) es-tam-2df-ter"
+		puts "\n (3) es-tam-2db-ter 		(8) es-mtad-2dacore1-ter"
+		puts "\n (4) es-tam-2dc-ter 		(9) es-mtam-2dgcore2-ter"
+		puts "\n (5) es-tam-2dd-ter"
+		
+		sw = gets.to_i
+	  temporal = sw + 29
+	  conectar(sw, 2, cargar[sw])
+		
+=begin	
 		
 		//menu TAM otros
 		else if ((lugar == 4)&&(tipo == 2)){
