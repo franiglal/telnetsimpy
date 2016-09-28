@@ -69,7 +69,7 @@ puts "          *         telrenault             *\n"
 puts "          *                                *\n"
 puts "          *     propiedad de Entelgy       *\n"
 puts "          *                                *\n"
-puts "          *    creado por Alberto F.I.	   *\n"
+puts "          *    creado por Alberto F.I.     *\n"
 puts "          *                                *\n"
 puts "          *        Version 0.1             *\n"
 puts "          *                                *\n"
@@ -246,7 +246,21 @@ elsif lugar == 3
 
 	#menu PAL terciario
 	elsif tipo == 2
-
+		cargar = ["es-spal-7a1-ter", "es-spal-9a1-ter", "es-mpal-7lcore-ter", "es-spal-7b1-ter", 
+			"es-spal-9b1-ter", "es-mpal-7hcore-ter", "es-spal-7c1-ter", "es-spal-9c1-ter",
+			"es-spal-7h-srv1-ter", "es-spal-7d1-ter", "es-spal-9d1-ter", "es-spal-7h-srv2-ter",
+			"es-spal-7d2-ter", "es-spal-9e1-ter", "es-spal-7l-srv1-ter", "es-spal-7e1-ter",
+			"es-spal-9f1-ter", "es-spal-7l-srv2-ter", "es-spal-7f1-ter", "es-spal-9g1-ter",
+			"es-spal-dissol-7c2-ter", "es-spal-7g1-ter", "es-spal-9h1-ter", "es-spal-dissol-7d2-ter",
+			"es-spal-7h1-ter", "es-spal-9i1-ter", "es-spal-dispin-7f1-ter", "es-spal-7i1-ter",
+			"es-spal-9j1-ter", "es-spal-dismon-7h1-ter", "es-spal-7i2-ter", "es-spal-9k1-ter",
+			"es-spal-7j1-ter", "es-spal-9l1-ter", "es-spal-7j3-ter", "(41) es-spal-9m1-ter",
+			"es-spal-7k1-ter", "es-spal-9n1-ter", "es-spal-7k2-ter" "es-spal-9o1-ter", "es-spal-7l1-ter",
+			"es-spal-9n1-ind", "es-spal-7l2-ter", "es-spal-9p1-ter", "es-spal-7m1-ter", "es-spal-9q1-ter",
+			"es-spal-7n1-ter", "es-spal-9r1-ter", "es-spal-7r1-ter", "es-spal-9s1-ter", "es-spal-7s1-ter",
+			"es-spal-9t1-ter", "es-spal-7t1-ter", "es-spal-9u1-ter", "es-spal-7u1-ter", "es-spal-9w1-ter",
+			"es-spal-7v1-ter", "es-spal-9x1-ter", "es-spal-7w1-ter", "es-spal-7x1-ter", "es-spal-7y1-ter",
+			"es-spal-7z1-ter"]
   	puts "\n\n\n (1)  es-spal-7a1-ter      (29) es-spal-9a1-ter     (53) es-mpal-7lcore-ter");
     puts "\n (2)  es-spal-7b1-ter      (30) es-spal-9b1-ter     (54) es-mpal-7hcore-ter");
     puts "\n (3)  es-spal-7c1-ter      (31) es-spal-9c1-ter     (55) es-spal-7h-srv1-ter");
@@ -281,339 +295,107 @@ elsif lugar == 3
 		conectar(sw, 62, cargar[sw])
 
             
-          
-=begin
-        //menu PAL otros
-        else if ((lugar == 3) && (tipo == 3)){
-           
-            printf("\n\n\n (1) es-spal-7c-RedConsolas");
-            printf("\n (2) es-spal-7h-iao");
-            printf("\n (3) es-spal-7l-iao");
-            printf("\n (4) es-spal-7S-iao");
-            printf("\n (5) es-rpal-21");
-            printf("\n (6) es-rpal-22");
-            printf("\n\n >>> ");
+	#menu PAL otros
+  elsif tipo == 3
+    carga = ["es-spal-7c-RedConsolas", "es-spal-7h-iao", "es-spal-7l-iao", 
+    	"es-spal-7S-iao", "es-rpal-21", "es-rpal-22"]    
+    puts "\n\n\n (1) es-spal-7c-RedConsolas"
+    puts "\n (2) es-spal-7h-iao"
+    puts "\n (3) es-spal-7l-iao"
+    puts "\n (4) es-spal-7S-iao"
+    puts "\n (5) es-rpal-21"
+    puts "\n (6) es-rpal-22"
             
-            scanf("%d", &sw);
-            
-            switch (sw) {
-            	case 1:
-					system("telnet 10.216.176.63");
-					break;
-					
-				case 2:
-					system("telnet 10.216.127.244");
-					break;
-				
-				case 3:
-					system("telnet 10.216.127.242");
-					break;
-				
-				case 4:
-					system("telnet 10.216.127.243");
-					break;
-				
-				case 5:
-					system("telnet 10.216.27.20");
-					break;
-				
-				case 6:
-					system("telnet 10.216.27.21");
-					break;
-				
-				default:
-					printf("ERROR ....  switch no encontrado\n\n");
-					system("pause");
-					break;	
-            
-      		}
-        }
-        
-        //menu SEV industrial
-        else if ((lugar == 4) && (tipo == 1)){
-            
-  			printf("\n\n\n (1) es-ssev-8b1-ind      (18) es-msev-8qcore1-ind");
-			printf("\n (2)  es-ssev-8c1-ind      (19) es-msev-8qcore2-ind"); 
-			printf("\n (3)  es-ssev-8c2-ind      (20) es-ssev-8g-svr1-ind");
-  			printf("\n (4)  es-ssev-8d1-ind      (21) es-ssev-8g-svr2-ind");
-			printf("\n (5)  es-ssev-8e1-ind      (22) es-ssev-8q-svr1-ind");
-			printf("\n (6)  es-ssev-8f1-ind      (23) es-msev-8q-rvr2-ind");
-			printf("\n (7)  es-ssev-8i1-ind");
- 			printf("\n (8)  es-ssev-8i2-ind");
-			printf("\n (9)  es-ssev-8k1-ind");
-			printf("\n (10) es-ssev-8l1-ind ");
- 			printf("\n (11) es-ssev-8m1-ind" ); 
-			printf("\n (12) es-ssev-8n1-ind" ); 
- 			printf("\n (13) es-ssev-8o1-ind" );
-			printf("\n (14) es-ssev-8p1-ind "); 
- 			printf("\n (15) es-ssev-8p2-ind ");
-			printf("\n (16) es-ssev-8q1-ind "); 
-			printf("\n (17) es-ssev-8r1-ind ");
-			printf("\n\n >>> ");
-            
-        	scanf("%d", &sw);
-        
-        	switch (sw) {
-                case 1:
-                    system("telnet 10.229.96.7");
-                    break;
-                
-                case 2:
-                    system("telnet 10.229.96.6");
-                    break;
-                
-                case 3:
-                    system("telnet 10.229.96.21");
-                    break;
-                    
-                case 4:
-                	system("telnet 10.229.96.14");
-                    break;
-                
-				case 5:
-					system("telnet 10.229.96.11");
-					break;
-				
-				case 6:
-					system("telnet 10.229.96.12");
-					break;
-				
-				case 7:
-					system("telnet 10.229.96.13");
-					break;
-				
-				case 8:
-					system("telnet 10.229.96.23");
-					break;
-					
-				case 9:
-					system("telnet 10.229.96.8");
-					break;
-				
-				case 10: 
-					system("telnet 10.229.96.1");
-					break;
-					
-				case 11:
-					system("telnet 10.229.96.2");
-					break;
-					
-				case 12:
-					system("telnet 10.229.96.3");
-					break;
-				
-				case 13:
-					system("telnet 10.239.96.4");
-					break;
-					
-				case 14:
-					system("telnet 10.229.96.5");
-					break;
-					
-				case 15:
-					system("telnet 10.229.96.17");
-					break;
-					
-				case 16:
-					system("telnet 10.229.96.10");
-					break;
-					
-				case 17:
-					system("telnet 10.229.96.9");
-					break;
-					
-				case 18:
-					system("telnet 10.229.96.253");
-					break;
-					
-				case 19:
-					system("telnet 10.229.96.252");
-					break;
-					
-				case 20:
-					system("telnet 10.229.96.251");
-					break;
-					
-				case 21:
-					system("telnet 10.229.96.250");
-					break;
-					
-				case 22:
-					system("telnet 10.229.96.19");
-					break;
-					
-				case 23:
-					system("telnet 10.229.96.20");
-					break;
-				
-				default:
-					printf("ERROR ....  switch no encontrado\n\n");
-					system("pause");
-					break;		
-				
-			}
-    	}
-    	
-		// menu SEV terciario
-		 else if((lugar == 4) && (tipo ==2)){
+    sw = gets.to_i
+		temporal = sw + 181
+		conectar(sw, 62, cargar[sw])
+
+	else
+		error()
+	end
+
+
+#--------------------------------menu SEV industrial--------------------------------------------------------------------------
+elsif
+	industial()
+
+	#menu SEV industrial
+	if lugar == 1 
+    carga = ["es-ssev-8b1-ind", "es-msev-8qcore1-ind", "es-ssev-8c1-ind", "es-msev-8qcore2-ind",
+     "es-ssev-8c2-ind", "es-ssev-8g-svr1-ind", "es-ssev-8d1-ind", "es-ssev-8g-svr2-ind",
+     "es-ssev-8e1-ind", "es-ssev-8q-svr1-ind", "es-ssev-8f1-ind", "es-msev-8q-rvr2-ind",
+     "es-ssev-8i1-ind", "es-ssev-8i2-ind", "es-ssev-8k1-ind", "es-ssev-8l1-ind", "es-ssev-8m1-ind",
+     "es-ssev-8n1-ind", "es-ssev-8o1-ind", "es-ssev-8p1-ind", "es-ssev-8p2-ind", "es-ssev-8q1-ind",
+     "es-ssev-8r1-ind"]      
+  	puts "\n\n\n (1) es-ssev-8b1-ind      (18) es-msev-8qcore1-ind"
+		puts "\n (2)  es-ssev-8c1-ind      (19) es-msev-8qcore2-ind" 
+		puts "\n (3)  es-ssev-8c2-ind      (20) es-ssev-8g-svr1-ind"
+  	puts "\n (4)  es-ssev-8d1-ind      (21) es-ssev-8g-svr2-ind"
+		puts "\n (5)  es-ssev-8e1-ind      (22) es-ssev-8q-svr1-ind"
+		puts "\n (6)  es-ssev-8f1-ind      (23) es-msev-8q-rvr2-ind"
+		puts "\n (7)  es-ssev-8i1-ind"
+ 		puts "\n (8)  es-ssev-8i2-ind"
+		puts "\n (9)  es-ssev-8k1-ind"
+		puts "\n (10) es-ssev-8l1-ind"
+ 		puts "\n (11) es-ssev-8m1-ind"  
+		puts "\n (12) es-ssev-8n1-ind"  
+ 		puts "\n (13) es-ssev-8o1-ind" 
+		puts "\n (14) es-ssev-8p1-ind" 
+ 		puts "\n (15) es-ssev-8p2-ind"
+		puts "\n (16) es-ssev-8q1-ind" 
+		puts "\n (17) es-ssev-8r1-ind"
+    
+    sw = gets.to_i
+		temporal = sw + 189
+		conectar(sw, 62, cargar[sw])
+         	
+  #menu SEV terciario
+	elsif tipo == 2
+		cargar = ["es-ssev-8a1-ter", "es-ssev-8dr5-ter", "es-ssev-8b1-ter", "es-msev-8gcore-ter",
+		 "es-ssev-8b2-ter", "es-msev-8qcore-ter", "es-ssev-8c1-ter", "es-ssev-8g-svr1-ter",
+		 "es-ssev-8d1-ter", "es-ssev-8g-svr2-ter", "es-ssev-8e1-ter", "es-ssev-8q-svr1-ter", 
+		 "es-ssev-8f1-ter", "es-ssev-8q-svr2-ter", "es-ssev-8g1-ter", "es-ssev-8i1-ter", 
+		 "es-ssev-8k1-ter", "es-ssev-8l1-ter", "es-ssev-8m1-ter", "es-ssev-8n1-ter", 
+		 "es-ssev-8o1-ter", "es-ssev-8p1-ter", "es-ssev-8q1-ter", "es-ssev-8r1-ter"]
+		puts "\n\n\n (1) es-ssev-8a1-ter       (18) es-ssev-8dr5-ter"
+		puts "\n (2) es-ssev-8b1-ter       (19) es-msev-8gcore-ter"
+		puts "\n (3) es-ssev-8b2-ter       (20) es-msev-8qcore-ter" 
+		puts "\n (4) es-ssev-8c1-ter       (21) es-ssev-8g-svr1-ter"
+		puts "\n (5) es-ssev-8d1-ter       (22) es-ssev-8g-svr2-ter"
+		puts "\n (6) es-ssev-8e1-ter       (23) es-ssev-8q-svr1-ter"
+		puts "\n (7) es-ssev-8f1-ter       (24) es-ssev-8q-svr2-ter" 
+		puts "\n (8) es-ssev-8g1-ter"
+		puts "\n (9) es-ssev-8i1-ter" 
+		puts "\n (10) es-ssev-8k1-ter"
+		puts "\n (11) es-ssev-8l1-ter"
+		puts "\n (12) es-ssev-8m1-ter"  
+		puts "\n (13) es-ssev-8n1-ter"
+		puts "\n (14) es-ssev-8o1-ter" 
+		puts "\n (15) es-ssev-8p1-ter"   
+		puts "\n (16) es-ssev-8q1-ter"
+		puts "\n (17) es-ssev-8r1-ter"
+    
+    sw = gets.to_i
+		temporal = sw + 214
+		conectar(sw, 62, cargar[sw])     
+    
 		
-		 	printf("\n\n\n (1) es-ssev-8a1-ter       (18) es-ssev-8dr5-ter");
-			printf("\n (2) es-ssev-8b1-ter       (19) es-msev-8gcore-ter");
-			printf("\n (3) es-ssev-8b2-ter       (20) es-msev-8qcore-ter"); 
-		 	printf("\n (4) es-ssev-8c1-ter       (21) es-ssev-8g-svr1-ter");
-		 	printf("\n (5) es-ssev-8d1-ter       (22) es-ssev-8g-svr2-ter");
-		 	printf("\n (6) es-ssev-8e1-ter       (23) es-ssev-8q-svr1-ter");
-		 	printf("\n (7) es-ssev-8f1-ter       (24) es-ssev-8q-svr2-ter"); 
-			printf("\n (8) es-ssev-8g1-ter");
-		 	printf("\n (9) es-ssev-8i1-ter"); 
-		 	printf("\n (10) es-ssev-8k1-ter");
-		 	printf("\n (11) es-ssev-8l1-ter");
-		 	printf("\n (12) es-ssev-8m1-ter");  
-		 	printf("\n (13) es-ssev-8n1-ter");
-		 	printf("\n (14) es-ssev-8o1-ter"); 
-		 	printf("\n (15) es-ssev-8p1-ter");   
-		 	printf("\n (16) es-ssev-8q1-ter");
-		 	printf("\n (17) es-ssev-8r1-ter"); 
-		 	printf("\n\n >>> ");
-            
-         	scanf("%d", &sw);
- 			switch (sw) {
-                case 1:
-                    system("telnet 10.216.162.65");
-                    break;
-                
-                case 2:
-                    system("telnet 10.216.162.69");
-                    break;
-                
-                case 3:
-                    system("telnet 10.216.162.73");
-                    break;
-                    
-                case 4:
-                	system("telnet 10.216.162.66");
-                    break;
-                
-				case 5:
-					system("telnet 10.216.162.67");
-					break;
-				
-				case 6:
-					system("telnet 10.216.162.110");
-					break;
-				
-				case 7:
-					system("telnet 10.216.162.68");
-					break;
-				
-				case 8:
-					system("telnet 10.216.162.80");
-					break;
-					
-				case 9:
-					system("telnet 10.216.162.82");
-					break;
-				
-				case 10: 
-					system("telnet 10.216.162.83");
-					break;
-					
-				case 11:
-					system("telnet 10.216.162.87");
-					break;
-					
-				case 12:
-					system("telnet 10.216.162.88");
-					break;
-				
-				case 13:
-					system("telnet 10.216.162.91");
-					break;
-					
-				case 14:
-					system("telnet 10.216.162.94");
-					break;
-					
-				case 15:
-					system("telnet 10.216.162.99");
-					break;
-					
-				case 16:
-					system("telnet 10.216.162.102");
-					break;
-					
-				case 17:
-					system("telnet 10.216.162.104");
-					break;
-					
-				case 18:
-					system("telnet 10.216.162.113");
-					break;
-					
-				case 19:
-					system("telnet 10.216.162.111");
-					break;
-					
-				case 20:
-					system("telnet 10.216.162.124");
-					break;
-					
-				case 21:
-					system("telnet 10.216.162.125");
-					break;
-					
-				case 22:
-					system("telnet 10.216.162.122");
-					break;
-					
-				case 23:
-					system("telnet 10.216.162.123");
-					break;
-				case 24:
-					system("telnet 10.216.162.121");
-					break;
-					
-				default:
-					printf("ERROR ....  switch no encontrado\n\n");
-					system("pause");
-					break;	
-			}
-     	}
-		
-		//menu SEV otros 
-		else if((lugar == 4) && (tipo == 3)){
-			
-			printf("\n\n\n (1) es-ssev-8a-iao");
-			printf("\n (2) es-ssev-8g-iao");	
-			printf("\n (3) es-rsev-21");
-			printf("\n (4) es-rsev-22");
-			pront();
-            
-         	scanf("%d", &sw);
-			
-			switch (sw) {
-                case 1:
-                    system("telnet 10.216.127.251");
-                    break;
-                
-                case 2:
-                    system("telnet 10.216.127.250");
-                    break;
-                
-                case 3:
-                    system("telnet 10.172.40.20");
-                    break;
-                    
-                case 4:
-                	system("telnet 10.172.40.21");
-                    break;
-		
-				default:
-					swerror();
-					break;	
-			}
-		}
-		
+	#menu SEV otros 
+	elsif tipo == 3
+		cargar = ["es-ssev-8a-iao", "es-ssev-8g-iao", "es-rsev-21", "es-rsev-2"]
+		puts "\n\n\n (1) es-ssev-8a-iao"
+		puts "\n (2) es-ssev-8g-iao"	
+		puts "\n (3) es-rsev-21"
+		puts "\n (4) es-rsev-22"
+    
+    sw = gets.to_i
+		temporal = sw + 240
+		conectar(sw, 62, cargar[sw])         
+  
+  else
+  	error()
+  end
+=begin		
 		// VAL indusrial
 		else if((lugar == 7) && (tipo == 1)){
 			
