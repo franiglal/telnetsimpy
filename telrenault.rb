@@ -5,7 +5,7 @@
 #	version 0.2
 #
 
-#---------------clases-----------------------
+#\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\clases//////////////////////////////////////////////////
 
 #clase switch
 class Switch
@@ -23,6 +23,8 @@ class Switch
 		system ("telnet #{@@ip}")
 	end
 end
+
+#\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Funciones//////////////////////////////////////////
 
 #funcion para conectar al router
 def conectar(conmutador, conexion, cargar) 		
@@ -53,10 +55,23 @@ def industrial
   puts "\n\n (3) Otros"
 end
 
+#funcion local tecnico solo para vll
+def localvll
+	puts "\n\n\n\n\n LOCAL TECNICO A ESCOJER: "
+	puts "\n\n (1) local 1"
+	puts "\n\n (3) local 3"
+	puts "\n\n (4) local 4"
+	puts "\n\n (5) local 5"
+	puts "\n\n (6) local 6"
+	puts "\n\n (7) otros"
+end
+
 def error
 	puts "error de seleccion de switch"
 	system ("pausse")
 end
+
+# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\main//////////////////////////////
 
 lugar = 0 #seleccion de lugar
 tipo  = 0 #seleccion de tipo
@@ -140,6 +155,7 @@ elsif lugar == 2
   
  		
 #---------------menu para TAM--------------------------------------
+
 elsif lugar == 4
   terciario()
 	tipo = gets.to_i	
@@ -175,7 +191,7 @@ elsif lugar == 4
 		error()
 	end
 
-#------------------------------------menu para VAL
+#------------------------------------menu para VAL-------------------------------
 	
 elsif lugar == 6
 		
@@ -292,7 +308,7 @@ elsif lugar == 3
     
     sw = gets.to_i
 		temporal = sw + 114
-		conectar(sw, 62, cargar[sw])
+		conectar(sw, 52, cargar[sw])
 
             
 	#menu PAL otros
@@ -308,7 +324,7 @@ elsif lugar == 3
             
     sw = gets.to_i
 		temporal = sw + 181
-		conectar(sw, 62, cargar[sw])
+		conectar(sw, 6, cargar[sw])
 
 	else
 		error()
@@ -347,7 +363,7 @@ elsif
     
     sw = gets.to_i
 		temporal = sw + 189
-		conectar(sw, 62, cargar[sw])
+		conectar(sw, 23, cargar[sw])
          	
   #menu SEV terciario
 	elsif tipo == 2
@@ -377,7 +393,7 @@ elsif
     
     sw = gets.to_i
 		temporal = sw + 214
-		conectar(sw, 62, cargar[sw])     
+		conectar(sw, 24, cargar[sw])     
     
 		
 	#menu SEV otros 
@@ -390,250 +406,126 @@ elsif
     
     sw = gets.to_i
 		temporal = sw + 240
-		conectar(sw, 62, cargar[sw])         
+		conectar(sw, 4, cargar[sw])         
   
   else
   	error()
   end
-=begin		
-		// VAL indusrial
-		else if((lugar == 7) && (tipo == 1)){
+#------------------menu VLL -----------------------------
+
+elsif lugar == 7
+	industrial()
+
+	#industrial 
+	if tipo == 1
+		local_vll()
+		local_vll = gets.to_i
+    
+    #local 1
+		if local_vll == 1
+				
+			puts "\n\n\n (1) )es-svll-1a1-ind"
+			puts "\n (2) es-svll-1c1-ind"
+			puts "\n (3) es-svll-1f1-ind"
+			puts "\n (4) es-svll-1h1-ind"
+			puts "\n (5) es-svll-1j1-ind"
+			puts "\n (6) es-svll-1o1-ind"
+				
+			sw = gets.to_i
+			temporal = sw + 247
+			conectar(sw, 6, cargar[sw])         
+
+	
+		#local 3
+		elsif local_vll == 2 || local_vll == 3
+				
+			puts "\n\n\n (1) es-svll-3a1-ind       (10) es-svll-3n1-ind "
+			puts "\n (2) es-svll-3c1-ind       (11) es-svll-3o1-ind "
+			puts "\n (3) es-svll-3e1-ind       (12) es-svll-3p1-ind "
+			puts "\n (4) es-svll-3f1-ind       (13) es-svll-3r1-ind "
+			puts "\n (5) es-svll-3g1-ind       (14) es-svll-3s1-ind "
+			puts "\n (6) es-svll-3h1-ind       (15) es-svll-3v1-ind "
+			puts "\n (7) es-svll-3j1-ind       (16) es-svll-3x1-ind "
+ 			puts "\n (8) es-svll-3l1-ind "
+			puts "\n (9) es-svll-3m1-ind "
+				
+			sw = gets.to_i
+			temporal = sw + 264
+			conectar(sw, 16, cargar[sw])         
+
+				
+		#local 4	
+		elsif local_vll == 4
+				
+			puts "\n\n\n (1)  es-svll-4a1-ind       (15) es-svll-4k3-ind"
+			puts "\n (2)  es-svll-4b1-ind      (16) es-svll-4l1-ind"	
+			puts "\n (3)  es-svll-4b2-ind      (17) es-svll-4m1-ind"
+			puts "\n (4)  es-svll-4c1-ind      (18) es-svll-4n1-ind"
+			puts "\n (5)  es-svll-4c2-ind      (19) es-svll-4n2-ind"
+			puts "\n (6)  es-svll-4d1-ind      (20) es-svll-4o1-ind"
+			puts "\n (7)  es-svll-4e1-ind      (21) es-svll-4p1-ind"
+			puts "\n (8)  es-svll-4g1-ind      (22) es-svll-4p2-ind"
+			puts "\n (9)  es-svll-4g2-ind      (23) es-svll-4q1-ind"
+			puts "\n (10) es-svll-4h1-ind      (24) es-svll-4r1-ind"
+			puts "\n (11) es-svll-4i1-ind      (25) es-svll-4s1-ind"
+			puts "\n (12) es-svll-4j1-ind      (26) es-svll-4u1-ind"
+			puts "\n (13) es-svll-4k1-ind      (27) es-svll-4v1-ind"
+			puts "\n (14) es-svll-4k2-ind      (28) es-svll-4y1-ind"
+				
+			sw = gets.to_i
+			temporal = sw + 264 #cambiar este valor
+			conectar(sw, 16, cargar[sw])         
+
+
+		#local 5
+		elsif local_vll == 5
+
+			puts "\n\n\n (1)  es-svll-5a1-ind      (14) es-svll-5r1-ind"
+			puts "\n (2)  es-svll-5b1-ind      (15) es-svll-5r2-ind" 
+			puts "\n (3)  es-svll-5d1-ind      (16) es-svll-5r3-ind"
+			puts "\n (4)  es-svll-5f1-ind      (17) es-svll-5s1-ind "
+			puts "\n (5)  es-svll-5f2-ind      (18) es-svll-5s2-ind "
+			puts "\n (6)  es-svll-5h1-ind      (19) es-svll-5t1-ind"
+			puts "\n (7)  es-svll-5i1-ind      (20) es-svll-5v1-ind "
+			puts "\n (8)  es-svll-5k1-ind      (21) es-svll-5v2-ind "
+			puts "\n (9)  es-svll-5k2-ind      (22) es-svll-5x1-ind "
+			puts "\n (10) es-svll-5l1-ind      (23) es-svll-5y1-ind "
+			puts "\n (11) es-svll-5n1-ind      (24) es-svll-5z1-ind "
+			puts "\n (12) es-svll-5o1-ind      (25) es-svll-5z2-ind "
+			puts "\n (13) es-svll-5p1-ind "
+ 		
+ 			sw = gets.to_i
+			temporal = sw + 264 #cambiar este valor
+			conectar(sw, 25, cargar[sw])  
 			
-			int local = 0;
-			
-			localvall();
-			
-			scanf("%d", &local);
-			
-			if (local == 1){
-				
-				printf("\n\n\n (1) )es-svll-1a1-ind") ;
-				printf("\n (2) es-svll-1c1-ind"); 
-				printf("\n (3) es-svll-1f1-ind");
-				printf("\n (4) es-svll-1h1-ind");
-				printf("\n (5) es-svll-1j1-ind");
-				printf("\n (6) es-svll-1o1-ind");
-				pront();
-				
-				scanf("%d", &sw);
-				
-				switch (sw) {
-                	case 1:
-                    	system("telnet 10.229.32.233");
-                    	break;
-                
-                	case 2:
-                    	system("telnet 10.229.32.232");
-                    	break;
-                
-                	case 3:
-                    	system("telnet 10.229.32.229");
-                    	break;
-                    
-                	case 4:
-                		system("telnet 10.229.32.227");
-                    	break;
-					
-					case 5:
-						system("telnet 10.229.32.225");
-						break;
-					
-					case 6:
-						system("telnet 10.229.32.222");
-						break;
-						
-					default:
-						swerror();
-						break;	
-				}
-			}
-			
-			
-			else if ((local == 2) || (local == 3)){
-				
-				printf("\n\n\n (1) es-svll-3a1-ind       (10) es-svll-3n1-ind ");
-				printf("\n (2) es-svll-3c1-ind       (11) es-svll-3o1-ind ");
-				printf("\n (3) es-svll-3e1-ind       (12) es-svll-3p1-ind ");
-				printf("\n (4) es-svll-3f1-ind       (13) es-svll-3r1-ind ");
-				printf("\n (5) es-svll-3g1-ind       (14) es-svll-3s1-ind ");
-				printf("\n (6) es-svll-3h1-ind       (15) es-svll-3v1-ind ");
-				printf("\n (7) es-svll-3j1-ind       (16) es-svll-3x1-ind ");
- 				printf("\n (8) es-svll-3l1-ind ");
-				printf("\n (9) es-svll-3m1-ind ");
-				pront();
-				
-				scanf("%d", &sw);
-					
-				switch(sw){
-				
-			 		case 1:
-                    	system("telnet 10.229.32.221");
-                    	break;
-                
-               		case 2:
-                    	system("telnet 10.229.32.220");
-                    	break;
-                
-                	case 3:
-                    	system("telnet 10.229.32.219");
-                    	break;
-                    
-                	case 4:
-                		system("telnet 10.229.32.218");
-                    	break;
-                
-					case 5:
-						system("telnet 10.229.32.217");
-						break;
-				
-					case 6:
-						system("telnet 10.229.32.216");
-						break;
-				
-					case 7:
-						system("telnet 10.229.32.214");
-						break;
-					
-					case 8:
-						system("telnet 10.229.32.213");
-						break;
-				
-					case 9: 
-						system("telnet 10.229.32.212");
-						break;
-					
-					case 10:
-						system("telnet 10.229.32.211");
-						break;
-					
-					case 11:
-						system("telnet 10.229.32.210");
-						break;
-				
-					case 12:
-						system("telnet 10.229.32.209");
-						break;
-					
-					case 13:
-						system("telnet 10.229.32.207");
-						break;
-					
-					case 14:
-						system("telnet 10.229.32.206");
-						break;
-					
-					case 15:
-						system("telnet 10.229.32.203");
-						break;
-					
-					case 16:
-						system("telnet 10.229.32.204");
-						break;
-					
-					default:
-						swerror();
-					
-				}
-			}	
-			
-			else if (local == 4){
-				
-				printf("\n\n\n (1)  es-svll-4a1-ind       (15) es-svll-4k3-ind");
-				printf("\n (2)  es-svll-4b1-ind      (16) es-svll-4l1-ind");	
-				printf("\n (3)  es-svll-4b2-ind      (17) es-svll-4m1-ind");
-				printf("\n (4)  es-svll-4c1-ind      (18) es-svll-4n1-ind");
-				printf("\n (5)  es-svll-4c2-ind      (19) es-svll-4n2-ind");
-				printf("\n (6)  es-svll-4d1-ind      (20) es-svll-4o1-ind");
-				printf("\n (7)  es-svll-4e1-ind      (21) es-svll-4p1-ind");
-				printf("\n (8)  es-svll-4g1-ind      (22) es-svll-4p2-ind");
-				printf("\n (9)  es-svll-4g2-ind      (23) es-svll-4q1-ind");
-				printf("\n (10) es-svll-4h1-ind      (24) es-svll-4r1-ind");
-				printf("\n (11) es-svll-4i1-ind      (25) es-svll-4s1-ind");
-				printf("\n (12) es-svll-4j1-ind      (26) es-svll-4u1-ind");
-				printf("\n (13) es-svll-4k1-ind      (27) es-svll-4v1-ind");
-				printf("\n (14) es-svll-4k2-ind      (28) es-svll-4y1-ind");
-				pront();
-				
-				scanf("%d", &sw);
-				
-				switch(sw){
-				
-			 		case 1:
-                    	system("telnet 10.229.32.202");
-                    	break;
-                
-               		case 2:
-                    	system("telnet 10.229.32.148");
-                    	break;
-                
-                	case 3:
-                    	system("telnet 10.229.32.200");
-                    	break;
-                    
-                	case 4:
-                		system("telnet 10.229.32.218");
-                    	break;
-                
-					case 5:
-						system("telnet 10.229.32.217");
-						break;
-				
-					case 6:
-						system("telnet 10.229.32.216");
-						break;
-				
-					case 7:
-						system("telnet 10.229.32.214");
-						break;
-					
-					case 8:
-						system("telnet 10.229.32.213");
-						break;
-				
-					case 9: 
-						system("telnet 10.229.32.212");
-						break;
-					
-					case 10:
-						system("telnet 10.229.32.211");
-						break;
-					
-					case 11:
-						system("telnet 10.229.32.210");
-						break;
-				
-					case 12:
-						system("telnet 10.229.32.209");
-						break;
-					
-					case 13:
-						system("telnet 10.229.32.207");
-						break;
-					
-					case 14:
-						system("telnet 10.229.32.206");
-						break;
-					
-					case 15:
-						system("telnet 10.229.32.203");
-						break;
-					
-					case 16:
-						system("telnet 10.229.32.204");
-						break;
-					
-					default:
-						swerror();
-					
-				}
-			
-			}	
-				
-			
-		}
 		
-		
-	   
+		#local 6
+		elsif local_vll == 6
+
+			puts "\n\n\n (1) es-svll-6a1-ind     (6)  es-svll-6i1-ind "
+			puts "\n (2) es-svll-6b1-ind     (7)  es-svll-6j1-ind "
+			puts "\n (3) es-svll-6c1-ind     (8)  es-svll-6k1-ind "
+			puts "\n (4) es-svll-6e1-ind     (9)  es-svll-6l1-ind "
+			puts "\n (5) es-svll-6h1-ind     (10) es-svll-6m1-ind " 
+	 		
+	 		sw = gets.to_i
+			temporal = sw + 264 #cambiar este valor
+			conectar(sw, 25, cargar[sw]) 
+ 			
+ 		else
+ 			error()
+ 		end
+ 	else
+ 		error()
+ 	end
+
+
+
+
+
+
+=begin
+  
 		     
 /*		   
 es-svll-1b-redsalvados-a 
@@ -885,13 +777,7 @@ es-svll-02
 void localvall()
 {
 	
-	printf("\n\n\n\n\n LOCAL TECNICO A ESCOJER: ");
-	printf("\n\n (1) local 1 ");
-	printf("\n\n (3) local 3 ");
-	printf("\n\n (4) local 4");
-	printf("\n\n (5) local 5");
-	printf("\n\n (6) local 6");
-	printf("\n\n >>> ");
+	
 	
 	//return (void);		
 }
