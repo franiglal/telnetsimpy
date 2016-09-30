@@ -207,9 +207,10 @@ elsif lugar == 6
 elsif lugar == 3
 	
 	industrial()
+	tipo = gets.to_i
   
   #menu PAL industrial
-	if tipo = 1
+	if tipo == 1
 		cargar = ["es-spal-7a1-ind", "es-spal-9a1-ind", "es-mpal-7lcore-ind", "es-spal-7b1-ind", 
 			"es-spal-9b1-ind", "es-mpal-7hcore-ind" "es-spal-7c1-ind", "es-spal-9b2-ind", 
 			"es-spal-7h-svr1-ind", "es-spal-7d1-ind", "es-spal-9c1-ind", "es-spal-7h-svr2-ind", 
@@ -334,6 +335,7 @@ elsif lugar == 3
 #--------------------------------menu SEV industrial--------------------------------------------------------------------------
 elsif
 	industial()
+	tipo = gets.to_i
 
 	#menu SEV industrial
 	if lugar == 1 
@@ -415,7 +417,7 @@ elsif
 
 elsif lugar == 7
 	industrial()
-
+	tipo == gets.to_i
 	#industrial 
 	if tipo == 1
 		local_vll()
@@ -423,7 +425,8 @@ elsif lugar == 7
     
     #local 1
 		if local_vll == 1
-				
+			cargar = ["es-svll-1a1-ind", "es-svll-1c1-ind", "es-svll-1f1-ind", 
+				"es-svll-1h1-ind", "es-svll-1j1-ind", "es-svll-1o1-ind"]
 			puts "\n\n\n (1) )es-svll-1a1-ind"
 			puts "\n (2) es-svll-1c1-ind"
 			puts "\n (3) es-svll-1f1-ind"
@@ -438,7 +441,10 @@ elsif lugar == 7
 	
 		#local 3
 		elsif local_vll == 2 || local_vll == 3
-				
+			cargar = 	["es-svll-3a1-ind", "es-svll-3n1-ind", "es-svll-3c1-ind", "es-svll-3o1-ind", 
+				"es-svll-3e1-ind", "es-svll-3p1-ind", "es-svll-3f1-ind", "es-svll-3r1-ind", 
+				"es-svll-3g1-ind", "es-svll-3s1-ind", "es-svll-3h1-ind", "es-svll-3v1-ind", 
+				"es-svll-3j1-ind", "es-svll-3x1-ind", "es-svll-3l1-ind", "es-svll-3m1-ind" ]
 			puts "\n\n\n (1) es-svll-3a1-ind       (10) es-svll-3n1-ind "
 			puts "\n (2) es-svll-3c1-ind       (11) es-svll-3o1-ind "
 			puts "\n (3) es-svll-3e1-ind       (12) es-svll-3p1-ind "
@@ -456,7 +462,13 @@ elsif lugar == 7
 				
 		#local 4	
 		elsif local_vll == 4
-				
+			cargar = ["es-svll-4a1-ind", "es-svll-4k3-ind", "es-svll-4b1-ind", "es-svll-4l1-ind", 
+				"es-svll-4b2-ind", "es-svll-4m1-ind", "es-svll-4c1-ind", "es-svll-4n1-ind", 
+				"es-svll-4c2-ind", "es-svll-4n2-ind", "es-svll-4d1-ind", "es-svll-4o1-ind", 
+				"es-svll-4e1-ind", "es-svll-4p1-ind", "es-svll-4g1-ind", "es-svll-4p2-ind", 
+				"es-svll-4g2-ind", "es-svll-4q1-ind", "es-svll-4h1-ind", "es-svll-4r1-ind", 
+				"es-svll-4i1-ind", "es-svll-4s1-ind", "es-svll-4j1-ind", "es-svll-4u1-ind", 
+				"es-svll-4k1-ind", "es-svll-4v1-ind", "es-svll-4k2-ind", "es-svll-4y1-ind"]	
 			puts "\n\n\n (1)  es-svll-4a1-ind       (15) es-svll-4k3-ind"
 			puts "\n (2)  es-svll-4b1-ind      (16) es-svll-4l1-ind"	
 			puts "\n (3)  es-svll-4b2-ind      (17) es-svll-4m1-ind"
@@ -479,20 +491,26 @@ elsif lugar == 7
 
 		#local 5
 		elsif local_vll == 5
-
+			cargar = ["es-svll-5a1-ind", "es-svll-5r1-ind", "es-svll-5b1-ind", "es-svll-5r2-ind", 
+				"es-svll-5d1-ind", "es-svll-5r3-ind", "es-svll-5f1-ind", "es-svll-5s1-ind", 
+				"es-svll-5f2-ind", "es-svll-5s2-ind", "es-svll-5h1-ind", "es-svll-5t1-ind", 
+				"es-svll-5i1-ind", "es-svll-5v1-ind", "es-svll-5k1-ind", "es-svll-5v2-ind", 
+				"es-svll-5k2-ind", "es-svll-5x1-ind", "es-svll-5l1-ind", "es-svll-5y1-ind", 
+				"es-svll-5n1-ind", "es-svll-5z1-ind", "es-svll-5o1-ind", "es-svll-5z2-ind", 
+				"es-svll-5p1-ind"]
 			puts "\n\n\n (1)  es-svll-5a1-ind      (14) es-svll-5r1-ind"
 			puts "\n (2)  es-svll-5b1-ind      (15) es-svll-5r2-ind" 
 			puts "\n (3)  es-svll-5d1-ind      (16) es-svll-5r3-ind"
-			puts "\n (4)  es-svll-5f1-ind      (17) es-svll-5s1-ind "
-			puts "\n (5)  es-svll-5f2-ind      (18) es-svll-5s2-ind "
+			puts "\n (4)  es-svll-5f1-ind      (17) es-svll-5s1-ind"
+			puts "\n (5)  es-svll-5f2-ind      (18) es-svll-5s2-ind"
 			puts "\n (6)  es-svll-5h1-ind      (19) es-svll-5t1-ind"
-			puts "\n (7)  es-svll-5i1-ind      (20) es-svll-5v1-ind "
-			puts "\n (8)  es-svll-5k1-ind      (21) es-svll-5v2-ind "
-			puts "\n (9)  es-svll-5k2-ind      (22) es-svll-5x1-ind "
-			puts "\n (10) es-svll-5l1-ind      (23) es-svll-5y1-ind "
-			puts "\n (11) es-svll-5n1-ind      (24) es-svll-5z1-ind "
-			puts "\n (12) es-svll-5o1-ind      (25) es-svll-5z2-ind "
-			puts "\n (13) es-svll-5p1-ind "
+			puts "\n (7)  es-svll-5i1-ind      (20) es-svll-5v1-ind"
+			puts "\n (8)  es-svll-5k1-ind      (21) es-svll-5v2-ind"
+			puts "\n (9)  es-svll-5k2-ind      (22) es-svll-5x1-ind"
+			puts "\n (10) es-svll-5l1-ind      (23) es-svll-5y1-ind"
+			puts "\n (11) es-svll-5n1-ind      (24) es-svll-5z1-ind"
+			puts "\n (12) es-svll-5o1-ind      (25) es-svll-5z2-ind"
+			puts "\n (13) es-svll-5p1-ind"
  		
  			sw = gets.to_i
 			temporal = sw + 264 #cambiar este valor
@@ -501,12 +519,12 @@ elsif lugar == 7
 		
 		#local 6
 		elsif local_vll == 6
-
-			puts "\n\n\n (1) es-svll-6a1-ind     (6)  es-svll-6i1-ind "
-			puts "\n (2) es-svll-6b1-ind     (7)  es-svll-6j1-ind "
-			puts "\n (3) es-svll-6c1-ind     (8)  es-svll-6k1-ind "
-			puts "\n (4) es-svll-6e1-ind     (9)  es-svll-6l1-ind "
-			puts "\n (5) es-svll-6h1-ind     (10) es-svll-6m1-ind " 
+			cargar = ["es-svll-6a1-ind", "es-svll-6i1-ind", "es-svll-6b1-ind", "es-svll-6j1-ind", "es-svll-6c1-ind", "es-svll-6k1-ind", "es-svll-6e1-ind", "es-svll-6l1-ind", "es-svll-6h1-ind", "es-svll-6m1-ind"]
+			puts "\n\n\n (1) es-svll-6a1-ind     (6)  es-svll-6i1-ind"
+			puts "\n (2) es-svll-6b1-ind     (7)  es-svll-6j1-ind"
+			puts "\n (3) es-svll-6c1-ind     (8)  es-svll-6k1-ind"
+			puts "\n (4) es-svll-6e1-ind     (9)  es-svll-6l1-ind"
+			puts "\n (5) es-svll-6h1-ind     (10) es-svll-6m1-ind" 
 	 		
 	 		sw = gets.to_i
 			temporal = sw + 264 #cambiar este valor
