@@ -27,8 +27,8 @@ end
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Funciones//////////////////////////////////////////
 
 #funcion para conectar al router
-def conectar(conmutador, conexion, cargar) 		
-	if conmutador <= conexion
+def conectar(menu, conmutador, conexion, cargar) 		
+	if menu <= conexion
 		  ip = File.open("switch.txt", "r") #seleccion de archivo donde estan las ips
   	  ips = ip.readlines 
 	  	sede = Switch.new(cargar[conmutador], ips[conmutador])
@@ -111,9 +111,9 @@ if lugar == 1
   puts "\n  (3) es-mbar-22"
   puts
   sw = gets.to_i
-
+  temporal = sw
   #menu de switch al que quererse conectar 
-  conectar(sw, 3, cargar[sw])
+  conectar(sw, temporal, 3, cargar[sw])
 
 #-----------menu para MAD --------------------------------------------
 elsif lugar == 2 
@@ -138,7 +138,7 @@ elsif lugar == 2
 
 		sw = gets.to_i
 		temporal = sw + 5
-	  conectar(temporal, 18, cargar[sw] )
+	  conectar(sw, temporal, 18, cargar[sw] )
 
     #menu para MAD otros
   elsif tipo == 2
@@ -148,11 +148,11 @@ elsif lugar == 2
 	  
 	  sw = gets.to_i
 	  temporal = sw + 25
-	  conectar(sw, 2, cargar[sw])
+	  conectar(sw, temporal, 2, cargar[sw])
 		
 	else 
-
-  
+		error()
+  end
  		
 #---------------menu para TAM--------------------------------------
 
@@ -173,7 +173,7 @@ elsif lugar == 4
 		
 		sw = gets.to_i
 	  temporal = sw + 29
-	  conectar(sw, 9, cargar[sw])
+	  conectar(sw, temporal, 9, cargar[sw])
 		
 
 		
@@ -185,7 +185,7 @@ elsif lugar == 4
 		
 		sw = gets.to_i
 	  temporal = sw + 29
-	  conectar(sw, 2, cargar[sw])		
+	  conectar(sw, temporal, 2, cargar[sw])		
 	
 	else
 		error()
@@ -194,13 +194,13 @@ elsif lugar == 4
 #------------------------------------menu para VAL-------------------------------
 	
 elsif lugar == 6
-		
+	cargar =	["es-rval-21", "es-rval-22"]
 	puts "\n\n\n (1) es-rval-21"
 	puts "\n (2) es-rval-22"
 	
 	sw = gets.to_i
 	temporal = sw + 44
-	conectar(sw, 2, cargar[sw])
+	conectar(sw, temporal, 2, cargar[sw])
 
   
 #------------------------------------menu para PAL -----------------------------		
@@ -259,7 +259,7 @@ elsif lugar == 3
 
     sw = gets.to_i
 		temporal = sw + 48
-		conectar(sw, 62, cargar[sw])
+		conectar(sw, temporal, 62, cargar[sw])
 
 	#menu PAL terciario
 	elsif tipo == 2
@@ -278,16 +278,16 @@ elsif lugar == 3
 			"es-spal-9t1-ter", "es-spal-7t1-ter", "es-spal-9u1-ter", "es-spal-7u1-ter", "es-spal-9w1-ter",
 			"es-spal-7v1-ter", "es-spal-9x1-ter", "es-spal-7w1-ter", "es-spal-7x1-ter", "es-spal-7y1-ter",
 			"es-spal-7z1-ter"]
-  	puts "\n\n\n (1)  es-spal-7a1-ter      (29) es-spal-9a1-ter     (53) es-mpal-7lcore-ter");
-    puts "\n (2)  es-spal-7b1-ter      (30) es-spal-9b1-ter     (54) es-mpal-7hcore-ter");
-    puts "\n (3)  es-spal-7c1-ter      (31) es-spal-9c1-ter     (55) es-spal-7h-srv1-ter");
-    puts "\n (4)  es-spal-7d1-ter      (32) es-spal-9d1-ter     (56) es-spal-7h-srv2-ter");
-    puts "\n (5)  es-spal-7d2-ter      (33) es-spal-9e1-ter     (57) es-spal-7l-srv1-ter");
-    puts "\n (6)  es-spal-7e1-ter      (34) es-spal-9f1-ter     (58) es-spal-7l-srv2-ter");
-    puts "\n (7)  es-spal-7f1-ter      (35) es-spal-9g1-ter     (59) es-spal-dissol-7c2-ter");
-    puts "\n (8)  es-spal-7g1-ter      (36) es-spal-9h1-ter     (60) es-spal-dissol-7d2-ter");
-    puts "\n (9)  es-spal-7h1-ter      (37) es-spal-9i1-ter     (61) es-spal-dispin-7f1-ter");
-    puts "\n (10) es-spal-7i1-ter      (38) es-spal-9j1-ter     (62) es-spal-dismon-7h1-ter");
+  	puts "\n\n\n (1)  es-spal-7a1-ter      (29) es-spal-9a1-ter     (53) es-mpal-7lcore-ter"
+    puts "\n (2)  es-spal-7b1-ter      (30) es-spal-9b1-ter     (54) es-mpal-7hcore-ter"
+    puts "\n (3)  es-spal-7c1-ter      (31) es-spal-9c1-ter     (55) es-spal-7h-srv1-ter"
+    puts "\n (4)  es-spal-7d1-ter      (32) es-spal-9d1-ter     (56) es-spal-7h-srv2-ter"
+    puts "\n (5)  es-spal-7d2-ter      (33) es-spal-9e1-ter     (57) es-spal-7l-srv1-ter"
+    puts "\n (6)  es-spal-7e1-ter      (34) es-spal-9f1-ter     (58) es-spal-7l-srv2-ter"
+    puts "\n (7)  es-spal-7f1-ter      (35) es-spal-9g1-ter     (59) es-spal-dissol-7c2-ter"
+    puts "\n (8)  es-spal-7g1-ter      (36) es-spal-9h1-ter     (60) es-spal-dissol-7d2-ter"
+    puts "\n (9)  es-spal-7h1-ter      (37) es-spal-9i1-ter     (61) es-spal-dispin-7f1-ter"
+    puts "\n (10) es-spal-7i1-ter      (38) es-spal-9j1-ter     (62) es-spal-dismon-7h1-ter"
     puts "\n (11) es-spal-7i2-ter      (39) es-spal-9k1-ter"
     puts "\n (12) es-spal-7j1-ter      (40) es-spal-9l1-ter"
     puts "\n (13) es-spal-7j3-ter      (41) es-spal-9m1-ter"
@@ -309,23 +309,23 @@ elsif lugar == 3
     
     sw = gets.to_i
 		temporal = sw + 114
-		conectar(sw, 52, cargar[sw])
+		conectar(sw, temporal, 62, cargar[sw])
 
             
 	#menu PAL otros
   elsif tipo == 3
-    carga = ["es-spal-7c-RedConsolas", "es-spal-7h-iao", "es-spal-7l-iao", 
+    cargar = ["es-spal-7c-RedConsolas", "es-spal-7h-iao", "es-spal-7l-iao", 
     	"es-spal-7S-iao", "es-rpal-21", "es-rpal-22"]    
     puts "\n\n\n (1) es-spal-7c-RedConsolas"
     puts "\n (2) es-spal-7h-iao"
     puts "\n (3) es-spal-7l-iao"
     puts "\n (4) es-spal-7S-iao"
-    puts "\n (5) es-rpal-21"
-    puts "\n (6) es-rpal-22"
+    #puts "\n (5) es-rpal-21"
+    #puts "\n (6) es-rpal-22"
             
     sw = gets.to_i
-		temporal = sw + 181
-		conectar(sw, 6, cargar[sw])
+		temporal = sw + 180
+		conectar(sw, temporal, 4, cargar[sw])
 
 	else
 		error()
@@ -333,8 +333,8 @@ elsif lugar == 3
 
 
 #--------------------------------menu SEV industrial--------------------------------------------------------------------------
-elsif
-	industial()
+elsif tipo == 6
+	industrial()
 	tipo = gets.to_i
 
 	#menu SEV industrial
@@ -365,7 +365,7 @@ elsif
     
     sw = gets.to_i
 		temporal = sw + 189
-		conectar(sw, 23, cargar[sw])
+		conectar(sw, temporal, 23, cargar[sw])
          	
   #menu SEV terciario
 	elsif tipo == 2
@@ -395,7 +395,7 @@ elsif
     
     sw = gets.to_i
 		temporal = sw + 214
-		conectar(sw, 24, cargar[sw])     
+		conectar(sw, temporal, 24, cargar[sw])     
     
 		
 	#menu SEV otros 
@@ -408,7 +408,7 @@ elsif
     
     sw = gets.to_i
 		temporal = sw + 240
-		conectar(sw, 4, cargar[sw])         
+		conectar(sw, temporal, 4, cargar[sw])         
   
   else
   	error()
@@ -417,10 +417,10 @@ elsif
 
 elsif lugar == 7
 	industrial()
-	tipo == gets.to_i
+	tipo = gets.to_i
 	#industrial 
 	if tipo == 1
-		local_vll()
+		localvll()
 		local_vll = gets.to_i
     
     #local 1
@@ -436,7 +436,7 @@ elsif lugar == 7
 				
 			sw = gets.to_i
 			temporal = sw + 247
-			conectar(sw, 6, cargar[sw])         
+			conectar(sw, temporal, 6, cargar[sw])         
 
 	
 		#local 3
@@ -445,19 +445,19 @@ elsif lugar == 7
 				"es-svll-3e1-ind", "es-svll-3p1-ind", "es-svll-3f1-ind", "es-svll-3r1-ind", 
 				"es-svll-3g1-ind", "es-svll-3s1-ind", "es-svll-3h1-ind", "es-svll-3v1-ind", 
 				"es-svll-3j1-ind", "es-svll-3x1-ind", "es-svll-3l1-ind", "es-svll-3m1-ind" ]
-			puts "\n\n\n (1) es-svll-3a1-ind       (10) es-svll-3n1-ind "
-			puts "\n (2) es-svll-3c1-ind       (11) es-svll-3o1-ind "
-			puts "\n (3) es-svll-3e1-ind       (12) es-svll-3p1-ind "
-			puts "\n (4) es-svll-3f1-ind       (13) es-svll-3r1-ind "
-			puts "\n (5) es-svll-3g1-ind       (14) es-svll-3s1-ind "
-			puts "\n (6) es-svll-3h1-ind       (15) es-svll-3v1-ind "
-			puts "\n (7) es-svll-3j1-ind       (16) es-svll-3x1-ind "
- 			puts "\n (8) es-svll-3l1-ind "
-			puts "\n (9) es-svll-3m1-ind "
+			puts "\n\n\n (1) es-svll-3a1-ind       (10) es-svll-3n1-ind"
+			puts "\n (2) es-svll-3c1-ind       (11) es-svll-3o1-ind"
+			puts "\n (3) es-svll-3e1-ind       (12) es-svll-3p1-ind"
+			puts "\n (4) es-svll-3f1-ind       (13) es-svll-3r1-ind"
+			puts "\n (5) es-svll-3g1-ind       (14) es-svll-3s1-ind"
+			puts "\n (6) es-svll-3h1-ind       (15) es-svll-3v1-ind"
+			puts "\n (7) es-svll-3j1-ind       (16) es-svll-3x1-ind"
+ 			puts "\n (8) es-svll-3l1-ind"
+			puts "\n (9) es-svll-3m1-ind"
 				
 			sw = gets.to_i
 			temporal = sw + 264
-			conectar(sw, 16, cargar[sw])         
+			conectar(sw, temporal, 16, cargar[sw])         
 
 				
 		#local 4	
@@ -486,7 +486,7 @@ elsif lugar == 7
 				
 			sw = gets.to_i
 			temporal = sw + 264 #cambiar este valor
-			conectar(sw, 16, cargar[sw])         
+			conectar(sw, temporal, 16, cargar[sw])         
 
 
 		#local 5
@@ -514,7 +514,7 @@ elsif lugar == 7
  		
  			sw = gets.to_i
 			temporal = sw + 264 #cambiar este valor
-			conectar(sw, 25, cargar[sw])  
+			conectar(sw, temporal, 25, cargar[sw])  
 			
 		
 		#local 6
@@ -528,11 +528,81 @@ elsif lugar == 7
 	 		
 	 		sw = gets.to_i
 			temporal = sw + 264 #cambiar este valor
-			conectar(sw, 25, cargar[sw]) 
+			conectar(sw, temporal, 25, cargar[sw]) 
+ 		#otros
+ 		elsif local_vll == 7
+ 			cargar = ["es-mvll-1bcore-ind", "es-svll-disest-1c1-ind", "es-mvll-5qcore-ind" "es-svll-dismon-4a1-ind", "es-svll-1b-svr1-ind", "es-svll-dismon-4a2-ind", "es-svll-1b-svr2-ind", "es-svll-dismon-4c1-ind", "es-svll-5q-svr1-ind", "es-svll-dismon-4c2-ind", "es-svll-5q-svr2-ind", "es-svll-dismon-6a1-ind", "es-svll-discar-3c1-ind", "es-svll-dismon-6b1-ind", "es-svll-discar-3e1-ind", "es-svll-dismot-5d1-ind", "es-svll-disest-1b1-ind", "es-svll-dismot-5k1-ind"]
+ 			puts "(1) es-mvll-1bcore-ind       (10) es-svll-disest-1c1-ind"
+			puts "(2) es-mvll-5qcore-ind       (11) es-svll-dismon-4a1-ind"
+			puts "(3) es-svll-1b-svr1-ind      (12) es-svll-dismon-4a2-ind" 
+			puts "(4) es-svll-1b-svr2-ind      (13) es-svll-dismon-4c1-ind" 
+			puts "(5) es-svll-5q-svr1-ind      (14) es-svll-dismon-4c2-ind" 
+			puts "(6) es-svll-5q-svr2-ind      (15) es-svll-dismon-6a1-ind" 
+			puts "(7) es-svll-discar-3c1-ind   (16) es-svll-dismon-6b1-ind"
+			puts "(8) es-svll-discar-3e1-ind   (17) es-svll-dismot-5d1-ind"
+			puts "(9) es-svll-disest-1b1-ind   (18) es-svll-dismot-5k1-ind" 
  			
+ 			sw = gets.to_i
+			temporal = sw + 264 #cambiar este valor
+			conectar(sw, temporal, 18, cargar[sw])
+
  		else
  			error()
  		end
+	
+ 	#terciario
+	elsif tipo == 2
+		localvll()
+		local_vll = gets.to_i
+ 		
+		if local_vll == 1
+			cargar = ["es-svll-1a1-ter", "es-svll-1i2-ter", "es-svll-1c1-ter", 
+				"es-svll-1j1-ter", "es-svll-1d1-ter", "es-svll-1k1-ter", "es-svll-1e1-ter", 
+				"es-svll-1m1-ter", "es-svll-1f1-ter", "es-svll-1n1-ter", "es-svll-1g1-ter", 
+				"es-svll-1o2-ter", "es-svll-1h1-ter", "es-svll-1q1-ter", "es-svll-1h2-ter", 
+				"es-svll-1r1-ter"]
+
+			puts "(1) #{cargar[0]}      (9)  #{cargar[8]}"		
+			puts "(2) #{cargar[1]}      (10) #{cargar[9]}"	
+			puts "(3) #{cargar[2]}      (11) #{cargar[10]}"	
+			puts "(4) #{cargar[3]}      (12) #{cargar[11]}"	
+			puts "(5) #{cargar[4]}      (13) #{cargar[12]}"	
+			puts "(6) #{cargar[5]}      (14) #{cargar[13]}"	
+			puts "(7) #{cargar[6]}      (15) #{cargar[14]}"	
+			puts "(8) #{cargar[7]}      (16) #{cargar[15]}"	
+
+			sw = gets.to_i
+			temporal = sw + 264 #cambiar este valor
+			conectar(sw, temporal, 15, cargar[sw])
+ 		
+ 		elsif local_vll = 2
+ 			cargar = ["es-svll-3a1-ter", "es-svll-3c1-ter", "es-svll-3e1-ter", "es-svll-3f1-ter", 
+ 				"es-svll-3g1-ter" ,"es-svll-3h1-ter", "es-svll-3j1-ter", "es-svll-3l1-ter", 
+ 				"es-svll-3m1-ter", "es-svll-3n1-ter", "es-svll-3o1-ter", "es-svll-3p1-ter", 
+ 				"es-svll-3q1-ter", "es-svll-3r1-ter", "es-svll-3s1-ter", "es-svll-3t1-ter", 
+ 				"es-svll-3u1-ter", "es-svll-3v1-ter", "es-svll-3x1-ter"]
+
+ 			puts "(1)  #{cargar[0]}      (11)  #{cargar[10]}"		
+			puts "(2)  #{cargar[1]}      (12) #{cargar[11]}"	
+			puts "(3)  #{cargar[2]}      (13) #{cargar[12]}"	
+			puts "(4)  #{cargar[3]}      (14) #{cargar[13]}"	
+			puts "(5)  #{cargar[4]}      (15) #{cargar[14]}"	
+			puts "(6)  #{cargar[5]}      (16) #{cargar[15]}"	
+			puts "(7)  #{cargar[6]}      (17) #{cargar[16]}"	
+			puts "(8)  #{cargar[7]}      (18) #{cargar[17]}"	
+			puts "(9)  #{cargar[8]}      (19) #{cargar[18]}"	
+			puts "(10) #{cargar[9]}"	
+
+			sw = gets.to_i
+			temporal = sw + 264 #cambiar este valor
+			conectar(sw, temporal, 18, cargar[sw])
+
+ 		else 
+ 			error()
+ 		end
+ 
+
+
  	else
  		error()
  	end
